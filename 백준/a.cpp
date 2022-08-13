@@ -1,11 +1,11 @@
-#include <iostream>
+#include <iostream> 
 using namespace std;
 
 int main(){
-cout << "|\\_/|\n";
-cout << "|q p|   /}\n";
-cout << "( 0 )\"\"\"\\\n";
-cout << "|\"^\"`    |\n";
-cout << "||_/=\\\\__|\n";
-    
+    cout << "         ,r\'\"7"<<"\n";
+    cout << "r`-_   ,\'  ,/"<<"\n";
+    cout << " \\. \". L_r\'"<<"\n";
+    cout << "   `~\\/"<<"\n";
+    cout << "      |"<<"\n";
+    cout << "      |"<<"\n";
 }
