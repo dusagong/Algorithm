@@ -2,10 +2,12 @@
 using namespace std;
 
 int main(){
-    cout << "         ,r\'\"7"<<"\n";
-    cout << "r`-_   ,\'  ,/"<<"\n";
-    cout << " \\. \". L_r\'"<<"\n";
-    cout << "   `~\\/"<<"\n";
-    cout << "      |"<<"\n";
-    cout << "      |"<<"\n";
+    int sum = 0;
+    int n;
+    cin >> n;
+
+    if(n>0){
+        sum = 1;
+    }
+    cout << sum;
 }
