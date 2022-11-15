@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int t;
+    cin >> t;
+
+    for(int i = 0; i < t; i++){
+        for(int j = 0; j < i; j++){
+            cout << " ";
+        }
+        for(int j = 2*(t - i) - 1; j > 0; j--){
+            cout << "*";
+        }
+        cout << "\n";
+    }
+    
+
+}
