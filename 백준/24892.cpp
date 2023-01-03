@@ -21,7 +21,10 @@ int main(){
     }
     cout << sum;
 
-}
+    
+
+
+}   
 float fx(float x, int a, int b){
     float func = (-1) * (x-a)*(x-b);
     return func;
