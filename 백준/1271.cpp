@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 int main(){
-    int m, n;
+    long long m, n;
     cin >> m >> n;
     cout << m / n <<"\n"; 
     cout << m % n <<"\n"; 
