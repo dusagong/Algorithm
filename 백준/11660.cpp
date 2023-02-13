@@ -3,8 +3,8 @@ using namespace std;
 
 int main(){
     ios_base::sync_with_stdio(false);
-
     cin.tie(NULL);
+    cout.tie(NULL);
     int n, m;
     int x1, x2, y1, y2;
     cin >> n >> m;
@@ -42,30 +42,13 @@ int main(){
         }
         else{
             for(int j = x1; j <= x2;j++){
-                if(j == x1){
-                    if(y1!=0){
-                        total += sum[j][y2] - sum[j][y1-1];
-                    }
-                    else total += sum[j][y2];
+                
+                if(y1!=0){
+                    total += sum[j][y2] - sum[j][y1-1];
+                }
+                else total += sum[j][y2];
 
-                    // cout << total << "\n";
-                }
-                else if(j == x2){
-                    if(y1!=0){
-                    total += sum[j][y2] -sum[j][y1-1];
-                    // cout << total << "\n";
-                    }
-                    else total += sum[j][y2];
-                }
-                else{ 
-                    if(y1!=0){
-                        total += sum[j][n-1] - sum[j][y1-1];
-                    }
-                    else
-                    total += sum[j][y2];
-                    // cout << total << "\n";
-            
-                }
+                
             }
         }
     cout << total << "\n";
