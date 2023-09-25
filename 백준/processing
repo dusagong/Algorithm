@@ -1,0 +1,25 @@
+size(800, 800);
+background(#718E66);
+int dan;
+
+if(width>height) 
+{
+  dan = height/80;
+} 
+else 
+{
+  dan = width/80;
+}
+
+for(int i=0; i<width; i++)
+{
+  line(0+i,0, (dan*3)+i, height);
+
+  if(i % 2 == 0){
+    line(1*dan + i*6*dan,i*6*dan + 3*dan, 3*dan + i*6*dan,i*6*dan +2*dan );
+  }
+  if(i % 2 == 1){
+    line(4*dan + (i-1)*6*dan,(i-1)*6*dan + 6*dan, 6*dan + (i-1)*6*dan,i*6*dan +2*dan );
+  }
+
+}
