@@ -10,8 +10,6 @@ int main(){
     stack<long long int>value;
     stack<int>tempkey;
     stack<long long int>tempvalue;
-    key.push(n+1);
-    value.push(1000000001);
     long long int temp;
     vector<long long int> arr;
     long long int sum = 0;
@@ -21,46 +19,47 @@ int main(){
     }
     for(int i = n-1; i >= 0; i--){
         while(1){
-            if(value.top() > arr[i]){
-                long long int dist;
-                if(key.top() == n+1){
-                    if(tempkey.size() == 0){
-                        dist = key.top() - (i+1) -1;
-                    }
-                    else{
-                        dist = tempkey.top() - (i+1);
-                    
-                    }
-                }
-                else{
-                    dist = key.top() - (i+1);
-                }
-                sum += dist;
+            if(key.size() == 0){
+                int tempsize = tempkey.size();
+                for(int j = 0; j < tempsize; j++){
+                    key.push(tempkey.top());
+                    value.push(tempvalue.top());
+                    tempkey.pop();
+                    tempvalue.pop();
+                }  
                 key.push(i+1);
                 value.push(arr[i]);
                 break;
             }
-            else{
-                if(tempkey.size() != 0){
-                    if(tempvalue.top()  < value.top()){
-                        tempkey.push(key.top());
-                        tempvalue.push(value.top());
-                        key.pop();
-                        value.pop();
-                    }
-                    else{
-                        key.pop();
-                        value.pop();
-                    }
+            else if(value.top()>arr[i]){
+                int tempsize = tempkey.size();
+                for(int j = 0; j < tempsize; j++){
+                    key.push(tempkey.top());
+                    value.push(tempvalue.top());
+                    tempkey.pop();
+                    tempvalue.pop();
                 }
-                else{
-                    tempkey.push(key.top());
-                    tempvalue.push(value.top());
-                    key.pop();
-                    value.pop();
-                }
-                
+                sum++;
+                key.push(i+1); 
+                value.push(arr[i]);
+                break;
             }
+            else if(value.top()<arr[i]){
+                sum++;
+                key.pop();
+                value.pop();
+                continue;
+            }
+            else if(value.top() == arr[i]){
+                sum++;
+                tempkey.push(key.top());
+                tempvalue.push(value.top());
+                key.pop();
+                value.pop();
+                continue;
+
+            }
+
         }
 
     }
