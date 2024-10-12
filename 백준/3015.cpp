@@ -1,67 +1,31 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+
+#define X first
+#define Y second
 using namespace std;
 
 int main(){
-    cin.tie(0);
     ios::sync_with_stdio(0);
+    cin.tie(0);
     int n;
     cin >> n;
-    stack<int>key;
-    stack<long long int>value;
-    stack<int>tempkey;
-    stack<long long int>tempvalue;
-    long long int temp;
-    vector<long long int> arr;
-    long long int sum = 0;
+    stack<pair<long long int, int>> s;
+    long long int total = 0;
     for(int i = 0; i < n; i++){
+        long long int temp;
         cin >> temp;
-        arr.push_back(temp);
-    }
-    for(int i = n-1; i >= 0; i--){
-        while(1){
-            if(key.size() == 0){
-                int tempsize = tempkey.size();
-                for(int j = 0; j < tempsize; j++){
-                    key.push(tempkey.top());
-                    value.push(tempvalue.top());
-                    tempkey.pop();
-                    tempvalue.pop();
-                }  
-                key.push(i+1);
-                value.push(arr[i]);
-                break;
+        int depth = 0;
+        while(!s.empty() && temp >= s.top().X){
+            total += s.top().Y;
+            if(temp == s.top().X){
+                depth = s.top().Y;
             }
-            else if(value.top()>arr[i]){
-                int tempsize = tempkey.size();
-                for(int j = 0; j < tempsize; j++){
-                    key.push(tempkey.top());
-                    value.push(tempvalue.top());
-                    tempkey.pop();
-                    tempvalue.pop();
-                }
-                sum++;
-                key.push(i+1); 
-                value.push(arr[i]);
-                break;
-            }
-            else if(value.top()<arr[i]){
-                sum++;
-                key.pop();
-                value.pop();
-                continue;
-            }
-            else if(value.top() == arr[i]){
-                sum++;
-                tempkey.push(key.top());
-                tempvalue.push(value.top());
-                key.pop();
-                value.pop();
-                continue;
-
-            }
-
+            s.pop();
         }
-
+        if(!s.empty()){
+            total ++;
+        }
+        s.push(make_pair(temp,1 + depth));
     }
-    cout << sum;
+    cout << total;
 }
