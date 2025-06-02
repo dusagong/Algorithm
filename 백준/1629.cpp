@@ -19,10 +19,10 @@ long long exponent(long long a, long long b, long long c){
         return a%c;
     }
 
-    if(b % 2 == 0){
+    if(b % 2 == 0){ //2k승 계산산
         long long half = exponent(a,b/2,c);
         val = (( half* half))%c;
-    }else{
+    }else{//2k + 1 승 계산. 2k & 1
         val = (exponent(a,b-1,c) * exponent(a,1,c))%c;    
     }
 
